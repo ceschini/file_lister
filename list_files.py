@@ -1,9 +1,11 @@
-from fs import open_fs
+import glob
 
-home_fs = open_fs('.')
-file_list = home_fs.listdir('/')
+file_list = []
+for name in glob.glob('./*.py'):
+    splitted_name = name.split('/')
+    file_list.append(splitted_name[1])
 
-f = open('bag_list.cfg', 'a')
+f = open('bag_list.cfg', 'w')
 for file in file_list:
     f.write(f'{file}\n')
 f.close()
