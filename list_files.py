@@ -2,8 +2,9 @@ import glob
 
 file_list = []
 for name in glob.glob('./*.py'):
-    splitted_name = name.split('/')
-    file_list.append(splitted_name[1])
+    split1 = name.split('/')
+    split2 = split1[1].split('.')
+    file_list.append(split2[0])
 
 f = open('bag_list.cfg', 'w')
 for file in file_list:
